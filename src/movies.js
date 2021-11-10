@@ -66,7 +66,22 @@ function orderAlphabetically(movies) {
 }
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
-function turnHoursToMinutes(movies) {}
+function turnHoursToMinutes(movies) {
+  const parseToMinutes = (time = '') => {
+    if (!time.includes('m')) time += ' 0m';
+    [hours, minutes] = time
+      .slice(0, -1)
+      .split('h ')
+      .map((e) => parseInt(e));
+    return hours * 60 + minutes;
+  };
+
+  const replaceDuration = (movie) => {
+    return { ...movie, duration: parseToMinutes(movie.duration) };
+  };
+
+  return movies.map(replaceDuration);
+}
 
 // BONUS - Iteration 8: Best yearly score average - Best yearly score average
 function bestYearAvg(movies) {}
