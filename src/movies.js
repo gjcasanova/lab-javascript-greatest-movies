@@ -38,16 +38,28 @@ function dramaMoviesScore(movies = []) {
 }
 
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
-function orderByYear() {}
+function orderByYear(movies) {
+  const compare = (a, b) => {
+    if (a.year > b.year) return 1;
+    if (a.year < b.year) return -1;
+
+    if (a.title > b.title) return 1;
+    if (a.title < b.title) return -1;
+    
+    return 0;
+  };
+  sorted_movies = [...movies].sort(compare);
+  return sorted_movies;
+}
 
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
-function orderAlphabetically() {}
+function orderAlphabetically(movies) {}
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
-function turnHoursToMinutes() {}
+function turnHoursToMinutes(movies) {}
 
 // BONUS - Iteration 8: Best yearly score average - Best yearly score average
-function bestYearAvg() {}
+function bestYearAvg(movies) {}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
